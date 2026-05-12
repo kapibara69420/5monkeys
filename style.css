@@ -193,15 +193,14 @@ footer {
     z-index: -1; /* Behind content */
     background-image: url('background.jpg');
     background-repeat: no-repeat;
-    background-attachment: scroll; /* Scroll is safe when the container is fixed */
-    background-size: 250px auto; /* Force size on mobile */
-    background-position: center 120px; /* Centered below navbar */
+    background-size: 180px 180px;
+    background-position: center 80px;
     background-color: #2F414D; /* Match image background */
   }
 
   .parallax {
     background-image: none !important; /* Hide original parallax bg */
-    padding-top: 380px; /* Space for logo visibility */
+    padding-top: 290px; /* Space for logo visibility */
     padding-left: 1rem;
     padding-right: 1rem;
   }
