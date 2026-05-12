@@ -149,8 +149,7 @@ footer {
   letter-spacing: 0.06em;
 }
 
-/* ── Mobile BG div (hidden on desktop) ── */
-
+/* hidden on desktop */
 .mobile-bg {
   display: none;
 }
@@ -196,17 +195,11 @@ footer {
     transform: translateX(-50%);
     width: 180px;
     height: 180px;
-    z-index: 1;          /* above body bg, below navbar (z-index 100) */
+    z-index: 1;
     background-image: url('background.jpg');
     background-size: 180px 180px;
     background-repeat: no-repeat;
     background-position: center center;
-  }
-
-  /* push all content below the fixed image */
-  header {
-    position: relative;
-    z-index: 100;
   }
 
   .parallax {
@@ -215,8 +208,7 @@ footer {
     padding-top: 290px;
     padding-left: 1rem;
     padding-right: 1rem;
-    position: relative;
-    z-index: 2;
+    /* no position, no z-index — so it doesn't create a stacking context that covers .mobile-bg */
   }
 
   .navbar {
