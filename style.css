@@ -196,18 +196,27 @@ footer {
     transform: translateX(-50%);
     width: 180px;
     height: 180px;
-    z-index: -1;
+    z-index: 1;          /* above body bg, below navbar (z-index 100) */
     background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-color: #2F414D;
+    background-size: 180px 180px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  /* push all content below the fixed image */
+  header {
+    position: relative;
+    z-index: 100;
   }
 
   .parallax {
     background-image: none !important;
+    background-color: #2F414D;
     padding-top: 290px;
     padding-left: 1rem;
     padding-right: 1rem;
+    position: relative;
+    z-index: 2;
   }
 
   .navbar {
