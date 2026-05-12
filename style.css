@@ -144,3 +144,61 @@ footer {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
 }
+
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .parallax {
+    padding-top: 12rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    /* fixes buggy parallax on phones */
+    background-attachment: scroll;
+
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content {
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  footer {
+    font-size: 0.7rem;
+    padding: 1rem;
+  }
+}
