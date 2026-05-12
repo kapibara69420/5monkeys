@@ -182,6 +182,26 @@ footer {
 /* ─────────────────────────── */
 
 @media (max-width: 600px) {
+  /* VITAL FIX: We apply the background to the body on mobile 
+     to bypass the 'disappearing background' bug in mobile browsers.
+  */
+  body {
+    background-image: url('background.jpg');
+    background-attachment: fixed;
+    background-size: 260px auto; /* Small monkey */
+    background-position: center 120px; /* Positioned below fixed nav */
+    background-repeat: no-repeat;
+    background-color: #2F414D; 
+  }
+
+  /* We remove the background from parallax on mobile so they don't clash */
+  .parallax {
+    background-image: none !important; 
+    padding-top: 400px; /* Gives the monkey space to be seen before the text */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .navbar {
     padding: 1rem 0.5rem;
   }
@@ -192,30 +212,10 @@ footer {
     font-size: 0.6rem;
   }
 
-  .parallax {
-    /* FIXED POSITION FIX FOR PHONES */
-    /* We use 'scroll' because 'fixed' often makes images disappear on mobile browsers */
-    background-attachment: scroll;
-    
-    /* Use percentage for width to ensure it's visible on all phone sizes */
-    background-size: 280px auto; 
-    
-    /* Position it below the navbar (120px) and centered horizontally */
-    background-position: center 120px;
-    
-    /* Ensure the background image doesn't repeat if the page is long */
-    background-repeat: no-repeat;
-
-    /* Push the text card down significantly so the monkey isn't covered */
-    padding-top: 420px; 
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .content {
     padding: 1.5rem;
     width: 100%;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
   }
 
   .content h1 {
@@ -225,6 +225,5 @@ footer {
 
   .content p {
     text-align: center;
-    font-size: 0.9rem;
   }
 }
