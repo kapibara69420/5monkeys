@@ -149,7 +149,7 @@ footer {
   letter-spacing: 0.06em;
 }
 
-/* hidden on desktop */
+/* ── Mobile BG div — hidden on desktop/tablet ── */
 .mobile-bg {
   display: none;
 }
@@ -182,35 +182,40 @@ footer {
   }
 }
 
-/* ─────────────────────────── */
-/* ── PHONE RESPONSIVE FIXES ─ */
-/* ─────────────────────────── */
+/* ─────────────────────────────────────────────────── */
+/* ── PHONE — completely standalone layout below ── */
+/* ─────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
+
+  /* 1. Page background color */
+  body {
+    background-color: #2F414D;
+  }
+
+  /* 2. The image — use an img tag, not background-image */
   .mobile-bg {
     display: block;
-    position: fixed;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 180px;
-    height: 180px;
-    z-index: 1;
-    background-image: url('background.jpg');
-    background-size: 180px 180px;
-    background-repeat: no-repeat;
-    background-position: center center;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 90px; /* clear the navbar */
+    background: none;
   }
 
+  /* 3. Kill the parallax background entirely */
   .parallax {
+    background: none !important;
     background-image: none !important;
-    background-color: #2F414D;
-    padding-top: 290px;
+    background-color: transparent !important;
+    padding-top: 1.5rem;
+    padding-bottom: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    /* no position, no z-index — so it doesn't create a stacking context that covers .mobile-bg */
+    min-height: unset;
   }
 
+  /* 4. Navbar */
   .navbar {
     padding: 1rem 0.5rem;
   }
@@ -224,17 +229,17 @@ footer {
     font-size: 0.55rem;
   }
 
+  /* 5. Content card */
   .content {
     padding: 1.5rem;
     width: 100%;
     backdrop-filter: blur(8px);
+    margin-top: 1.5rem;
   }
-
   .content h1 {
     font-size: 1.8rem;
     text-align: center;
   }
-
   .content p {
     text-align: center;
     font-size: 0.9rem;
