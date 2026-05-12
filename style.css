@@ -253,7 +253,7 @@ footer {
     background-attachment: scroll;
 
     /* less zoomed */
-    background-size: 320px 320px;
+    background-size: 20px 20px;
 
     background-position: center 120px;
 
