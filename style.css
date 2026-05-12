@@ -85,6 +85,7 @@ html {
 
 .parallax {
   background-image: url('background.jpg');
+  /* Desktop Parallax Settings */
   background-attachment: fixed;
   background-size: 1500px 1500px;
   background-position: center center;
@@ -159,22 +160,18 @@ footer {
     gap: 1rem;
     padding: 1rem;
   }
-
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
   }
-
   .parallax {
     padding-top: 12rem;
     background-size: 1000px 1000px;
   }
-
   .content {
     width: 100%;
   }
-
   .content h1 {
     font-size: 3rem;
     text-align: center;
@@ -187,28 +184,27 @@ footer {
 
 @media (max-width: 600px) {
   .navbar {
-    padding: 1rem 0.7rem;
+    padding: 1rem 0.5rem;
   }
-
   .logo {
-    font-size: 1.4rem;
-    text-align: center;
+    font-size: 1.3rem;
   }
-
-  .nav-links {
-    gap: 0.6rem;
-    justify-content: center;
-  }
-
   .nav-links a {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
   }
 
   .parallax {
-    background-attachment: scroll; /* Fix for mobile browser parallax lag */
-    background-size: 80% auto; /* Scales based on screen width rather than fixed pixels */
-    background-position: center 100px;
-    padding-top: 300px; /* Pushes content down so the logo is fully visible */
+    /* Keeps the image fixed while scrolling */
+    background-attachment: fixed;
+    
+    /* Makes the image smaller (60% of screen width) */
+    background-size: 60% auto;
+    
+    /* Centers it horizontally, 20% down from the top */
+    background-position: center 20%;
+    
+    /* Adds top padding so text starts below the fixed image */
+    padding-top: 65vh; 
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -216,6 +212,7 @@ footer {
   .content {
     padding: 1.5rem;
     width: 100%;
+    backdrop-filter: blur(10px); /* Lower blur for better mobile performance */
   }
 
   .content h1 {
@@ -224,11 +221,6 @@ footer {
   }
 
   .content p {
-    font-size: 0.95rem;
-    text-align: center; /* Better readability on small screens */
-  }
-
-  footer {
-    font-size: 0.7rem;
+    text-align: center;
   }
 }
