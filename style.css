@@ -20,26 +20,35 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   min-height: 100%;
   font-family: 'DM Sans', sans-serif;
   background-color: #2e3f52;
   color: var(--text);
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 /* ── Navbar ── */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   background: var(--navbar-bg);
+
   padding: 1rem 2.5rem;
+
   position: fixed;
   top: 0;
   width: 100%;
+
   z-index: 100;
+
   backdrop-filter: blur(16px);
+
   border-bottom: 1px solid var(--border);
 }
 
@@ -60,10 +69,13 @@ body, html {
 .nav-links a {
   text-decoration: none;
   color: var(--text-muted);
+
   font-size: 0.78rem;
   font-weight: 500;
+
   letter-spacing: 0.12em;
   text-transform: uppercase;
+
   transition: color 0.25s, text-shadow 0.25s;
 }
 
@@ -79,12 +91,17 @@ body, html {
 }
 
 /* ── Parallax / Hero ── */
+
 .parallax {
   background-image: url('background.jpg');
-  background-attachment: fixed; /* enables parallax */
-  background-position: center center; /* keeps it centered */
+
+  /* desktop parallax */
+  background-attachment: fixed;
+
+  background-size: 1500px 1500px;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: 1500px 1500px; /* scales nicely on all screens */
+
   background-color: #2F414D;
 
   padding-top: 8rem;
@@ -96,24 +113,39 @@ body, html {
 }
 
 /* ── Content Card ── */
+
 .content {
   max-width: 820px;
   margin: 0 auto;
+
   background: var(--surface);
+
   padding: 2.5rem 3rem;
+
   border-radius: 4px;
+
   border: 1px solid var(--border);
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.04);
+
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+
   backdrop-filter: blur(20px);
 }
 
 .content h1 {
   font-family: 'Bebas Neue', sans-serif;
+
   font-size: 3.8rem;
+
   letter-spacing: 0.05em;
+
   margin-bottom: 0.4rem;
+
   color: var(--text);
+
   text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+
   line-height: 1.1;
 }
 
@@ -121,8 +153,11 @@ body, html {
   font-size: 1rem;
   font-style: italic;
   color: var(--accent-bright);
+
   margin-bottom: 1.8rem;
+
   font-weight: 300;
+
   letter-spacing: 0.03em;
 }
 
@@ -135,34 +170,66 @@ body, html {
 }
 
 /* ── Footer ── */
+
 footer {
   background: var(--surface-solid);
+
   border-top: 1px solid var(--border);
+
   text-align: center;
+
   padding: 1.2rem;
+
   color: var(--text-muted);
+
   font-size: 0.8rem;
+
   letter-spacing: 0.06em;
 }
 
-/* ── Mobile Responsive ── */
-@media (max-width: 768px) {
+/* ───────────────────────────── */
+/* ── TABLET RESPONSIVE FIXES ── */
+/* ───────────────────────────── */
+
+@media (max-width: 900px) {
 
   .navbar {
     flex-direction: column;
-    align-items: center;
-    padding: 1rem;
     gap: 1rem;
+    padding: 1rem;
   }
 
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
-  .nav-links a {
-    font-size: 0.7rem;
+  .parallax {
+    padding-top: 12rem;
+
+    /* less zoomed on tablets */
+    background-size: 1200px 1200px;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .content h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+/* ─────────────────────────── */
+/* ── PHONE RESPONSIVE FIXES ─ */
+/* ─────────────────────────── */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 1rem 0.7rem;
   }
 
   .logo {
@@ -170,35 +237,48 @@ footer {
     text-align: center;
   }
 
-  .parallax {
-    padding-top: 12rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .nav-links {
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-    /* fixes buggy parallax on phones */
+  .nav-links a {
+    font-size: 0.62rem;
+  }
+
+  .parallax {
+
+    /* mobile browsers break fixed backgrounds */
     background-attachment: scroll;
 
-    background-size: cover;
-    background-position: center;
+    /* less zoomed */
+    background-size: 750px 750px;
+
+    background-position: center 120px;
+
+    padding-top: 13rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .content {
-    padding: 1.5rem;
-    width: 100%;
+    padding: 1.3rem;
   }
 
   .content h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    line-height: 1.1;
     text-align: center;
   }
 
   .content p {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     text-align: left;
   }
 
   footer {
     font-size: 0.7rem;
-    padding: 1rem;
   }
 }
