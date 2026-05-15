@@ -149,11 +149,6 @@ footer {
   letter-spacing: 0.06em;
 }
 
-/* ── Mobile BG wrapper — hidden on desktop/tablet ── */
-.mobile-bg-wrapper {
-  display: none;
-}
-
 /* ───────────────────────────── */
 /* ── TABLET RESPONSIVE FIXES ── */
 /* ───────────────────────────── */
@@ -182,44 +177,11 @@ footer {
   }
 }
 
-/* ─────────────────────────────────────────────────── */
-/* ── PHONE — completely standalone layout below ── */
-/* ─────────────────────────────────────────────────── */
+/* ─────────────────────────── */
+/* ── PHONE RESPONSIVE FIXES ─ */
+/* ─────────────────────────── */
 
 @media (max-width: 600px) {
-
-  /* 1. Page background color */
-  body {
-    background-color: #2F414D;
-  }
-
-  /* 2. The image wrapper — centers the img reliably */
-  .mobile-bg-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-
-  .mobile-bg {
-    display: block;
-    width: 200px;
-    height: 200px;
-  }
-
-  /* 3. Kill the parallax background entirely */
-  .parallax {
-    background: none !important;
-    background-image: none !important;
-    background-color: transparent !important;
-    padding-top: 1.5rem;
-    padding-bottom: 6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    min-height: unset;
-  }
-
-  /* 4. Navbar */
   .navbar {
     padding: 1rem 0.5rem;
   }
@@ -233,12 +195,24 @@ footer {
     font-size: 0.55rem;
   }
 
-  /* 5. Content card */
+  .parallax {
+    background-image: url('background.jpg');
+    background-attachment: scroll;
+    background-size: 200px 200px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #2F414D;
+    padding-top: 230px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 6rem;
+    min-height: 100vh;
+  }
+
   .content {
     padding: 1.5rem;
     width: 100%;
     backdrop-filter: blur(8px);
-    margin-top: 1.5rem;
   }
   .content h1 {
     font-size: 1.8rem;
