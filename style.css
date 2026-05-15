@@ -221,7 +221,7 @@ footer {
     width: 400px;
     height: 400px;
     background-image: url('background.jpg');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     z-index: 0;
