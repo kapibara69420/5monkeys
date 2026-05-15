@@ -208,6 +208,7 @@ footer {
     background: none;
     background-color: #2F414D;
     padding: 0;
+    padding-top: 500px; /* pushes page start to where content begins, matching margin-top on .content */
     min-height: 100vh;
   }
 
@@ -231,10 +232,10 @@ footer {
     position: relative;
     z-index: 1;
     padding: 1.5rem;
-    width: 100%;
-    margin-top: 500px; /* top 250px + 200px image height + 50px gap */
-    margin-left: auto;
-    margin-right: auto;
+    width: calc(100% - 2rem);
+    margin-top: 500px;
+    margin-left: 1rem;
+    margin-right: 1rem;
     backdrop-filter: blur(8px);
   }
 
