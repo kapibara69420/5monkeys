@@ -201,26 +201,17 @@ footer {
     font-size: 0.55rem;
   }
 
-  /*
-   * Strip all background off .parallax.
-   * The image is handled by ::before with position:fixed.
-   * The page background colour comes from body.
-   */
   body {
     background-color: #2F414D;
   }
 
   .parallax {
     background: none !important;
-    padding: 0;
+    padding: 0 1rem;
     min-height: 100vh;
+    box-sizing: border-box;
   }
 
-  /*
-   * The image layer — position:fixed pins it to the viewport.
-   * top:250px places it a quarter of the way down a ~1000px phone screen.
-   * It sits behind .content (z-index:0 vs z-index:1).
-   */
   .parallax::before {
     content: '';
     position: fixed;
@@ -236,22 +227,17 @@ footer {
     z-index: 0;
   }
 
-  /*
-   * The content card.
-   * margin-top = navbar height (~120px) + gap (20px) = 140px from top.
-   * This is what the browser uses as the scroll start position,
-   * so the user cannot scroll up past the card into empty space.
-   * Horizontal margin keeps text off the screen edges.
+  /* 
+   * width: 100% here means 100% of .parallax which now has padding: 0 1rem
+   * so the card naturally sits 1rem from each edge — no calc needed.
+   * margin-top pushes it below the navbar.
    */
   .content {
     position: relative;
     z-index: 1;
+    width: 100%;
     padding: 1.5rem;
-    margin-top: 180px !important;
-    margin-left: 1rem !important;
-    margin-right: 1rem !important;
-    margin-bottom: 4rem;
-    width: calc(100% - 2rem) !important;
+    margin: 180px 0 4rem 0;
     backdrop-filter: blur(8px);
   }
 
