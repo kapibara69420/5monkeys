@@ -207,7 +207,7 @@ footer {
     position: relative;
     background: none;
     background-color: #2F414D;
-    padding-top: 290px;
+    padding-top: 480px;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 6rem;
@@ -217,7 +217,7 @@ footer {
   .parallax::before {
     content: '';
     position: fixed;
-    top: 100px;         /* below the stacked mobile navbar */
+    top: 250px;         /* below the stacked mobile navbar */
     left: 50%;
     transform: translateX(-50%);
     width: 200px;
