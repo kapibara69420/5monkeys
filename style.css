@@ -81,7 +81,7 @@ html {
   text-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* ── Parallax / Hero — DESKTOP ── */
+/* ── Parallax / Hero ── */
 
 .parallax {
   background-image: url('background.jpg');
@@ -183,6 +183,11 @@ footer {
 
 @media (max-width: 600px) {
 
+  /* stop the page bouncing/scrolling past its content */
+  html {
+    overscroll-behavior-y: none;
+  }
+
   .navbar {
     padding: 1rem 0.5rem;
   }
@@ -197,21 +202,25 @@ footer {
   }
 
   /*
-   * On mobile, background-attachment: fixed is broken on iOS and laggy on Android.
-   * The fix: strip the background off .parallax entirely, and use a ::before
-   * pseudo-element with position: fixed to pin the image to the viewport.
-   * .parallax gets position: relative so content stacks on top of it correctly.
+   * Strip all background off .parallax.
+   * The image is handled by ::before with position:fixed.
+   * The page background colour comes from body.
    */
+  body {
+    background-color: #2F414D;
+  }
 
   .parallax {
-    position: relative;
-    background: none;
-    background-color: #2F414D;
+    background: none !important;
     padding: 0;
-    padding-top: 500px; /* pushes page start to where content begins, matching margin-top on .content */
     min-height: 100vh;
   }
 
+  /*
+   * The image layer — position:fixed pins it to the viewport.
+   * top:250px places it a quarter of the way down a ~1000px phone screen.
+   * It sits behind .content (z-index:0 vs z-index:1).
+   */
   .parallax::before {
     content: '';
     position: fixed;
@@ -227,15 +236,22 @@ footer {
     z-index: 0;
   }
 
-  /* content card must sit above the ::before pseudo-element */
+  /*
+   * The content card.
+   * margin-top = navbar height (~120px) + gap (20px) = 140px from top.
+   * This is what the browser uses as the scroll start position,
+   * so the user cannot scroll up past the card into empty space.
+   * Horizontal margin keeps text off the screen edges.
+   */
   .content {
     position: relative;
     z-index: 1;
     padding: 1.5rem;
-    width: calc(100% - 2rem);
-    margin-top: 500px;
+    margin-top: 140px;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 3rem;
+    width: auto;
     backdrop-filter: blur(8px);
   }
 
