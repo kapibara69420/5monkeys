@@ -198,7 +198,7 @@ footer {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 130px;
+    margin-bottom: 1.5rem;
   }
 
   .mobile-bg {
