@@ -247,10 +247,10 @@ footer {
     position: relative;
     z-index: 1;
     padding: 1.5rem;
-    margin-top: 140px;
+    margin-top: 180px;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     width: auto;
     backdrop-filter: blur(8px);
   }
