@@ -86,7 +86,7 @@ html {
 .parallax {
   background-image: url('background.jpg');
   background-attachment: fixed;
-  background-size: 1500px 1500px;
+  background-size: 1200px 1200px;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #2F414D;
@@ -198,8 +198,7 @@ footer {
     display: block;
     width: 200px;
     height: 200px;
-    margin: 0 auto;
-    margin-top: 90px; /* clear the navbar */
+    margin: 130px auto 0 auto; /* 130px clears the taller mobile navbar */
     background: none;
   }
 
