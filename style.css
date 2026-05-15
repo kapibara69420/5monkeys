@@ -214,6 +214,7 @@ footer {
 
   .parallax::before {
     content: '';
+    display: block;
     position: fixed;
     top: 250px;
     left: 50%;
@@ -221,7 +222,7 @@ footer {
     width: 400px;
     height: 400px;
     background-image: url('background.jpg');
-    background-size: 400px 400px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     z-index: 0;
