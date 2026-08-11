@@ -81,12 +81,37 @@ html {
   text-shadow: 0 0 10px var(--accent-glow);
 }
 
+.list-links {
+  gap: 1.8rem;
+}
+
+.list-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.25s, text-shadow 0.25s;
+}
+
+.list-links a:hover {
+  color: var(--accent-bright);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.list-links a.active {
+  color: var(--accent-bright);
+  font-weight: 600;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
 /* ── Parallax / Hero ── */
 
 .parallax {
   background-image: url('background.jpg');
   background-attachment: fixed;
-  background-size: 1200px 1200px;
+  background-size: 1500px 1500px;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #2F414D;
@@ -149,6 +174,11 @@ footer {
   letter-spacing: 0.06em;
 }
 
+/* ── Mobile BG div — hidden on desktop/tablet ── */
+.mobile-bg {
+  display: none;
+}
+
 /* ───────────────────────────── */
 /* ── TABLET RESPONSIVE FIXES ── */
 /* ───────────────────────────── */
@@ -177,17 +207,40 @@ footer {
   }
 }
 
-/* ─────────────────────────── */
-/* ── PHONE RESPONSIVE FIXES ─ */
-/* ─────────────────────────── */
+/* ─────────────────────────────────────────────────── */
+/* ── PHONE — completely standalone layout below ── */
+/* ─────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
 
-  /* stop the page bouncing/scrolling past its content */
-  html {
-    overscroll-behavior-y: none;
+  /* 1. Page background color */
+  body {
+    background-color: #2F414D;
   }
 
+  /* 2. The image — use an img tag, not background-image */
+  .mobile-bg {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 90px; /* clear the navbar */
+    background: none;
+  }
+
+  /* 3. Kill the parallax background entirely */
+  .parallax {
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    padding-top: 1.5rem;
+    padding-bottom: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: unset;
+  }
+
+  /* 4. Navbar */
   .navbar {
     padding: 1rem 0.5rem;
   }
@@ -201,52 +254,17 @@ footer {
     font-size: 0.55rem;
   }
 
-  body {
-    background-color: #2F414D;
-  }
-
-  .parallax {
-    background: none !important;
-    padding: 0 1rem;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
-
-  .parallax::before {
-    content: '';
-    display: block;
-    position: fixed;
-    top: 250px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 400px;
-    background-image: url('background.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    z-index: 0;
-  }
-
-  /* 
-   * width: 100% here means 100% of .parallax which now has padding: 0 1rem
-   * so the card naturally sits 1rem from each edge — no calc needed.
-   * margin-top pushes it below the navbar.
-   */
+  /* 5. Content card */
   .content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
     padding: 1.5rem;
-    margin: 180px 0 4rem 0;
+    width: 100%;
     backdrop-filter: blur(8px);
+    margin-top: 1.5rem;
   }
-
   .content h1 {
     font-size: 1.8rem;
     text-align: center;
   }
-
   .content p {
     text-align: center;
     font-size: 0.9rem;
